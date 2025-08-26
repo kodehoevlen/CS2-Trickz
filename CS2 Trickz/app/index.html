@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CS2 Trickz</title>
+  <link rel="stylesheet" href="./styles.css" />
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO4B3KQAAAAASUVORK5CYII=" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="app-title">CS2 Trickz</span>
+        <span class="hint">N: New • F: Search • E: Export • I: Import</span>
+      </div>
+      <div class="actions">
+        <button id="btn-new" class="primary">New Post</button>
+        <button id="btn-export">Export</button>
+        <button id="btn-import">Import</button>
+      </div>
+    </header>
+
+    <section class="filters" id="filters">
+      <div class="row">
+        <div class="group" id="group-category">
+          <label>Category</label>
+          <select id="filter-category" class="input">
+            <option value="">All</option>
+          </select>
+        </div>
+        <div class="group hidden" id="group-type">
+          <label>Type</label>
+          <div class="segmented" id="type-segmented">
+            <!-- built from posts -->
+          </div>
+        </div>
+        <div class="group hidden" id="group-subtype">
+          <label>Subtype</label>
+          <div class="segmented" id="subtype-nades">
+            <!-- built from posts based on selected Type -->
+          </div>
+        </div>
+        <div class="group">
+          <label>Map</label>
+          <select id="filter-map" class="input">
+            <option value=""></option>
+            <option value="">All</option>
+            <option>Ancient</option>
+            <option>Anubis</option>
+            <option>Dust2</option>
+            <option>Inferno</option>
+            <option>Mirage</option>
+            <option>Nuke</option>
+            <option>Overpass</option>
+            <option>Vertigo</option>
+            <option>Other</option>
+          </select>
+          <input id="filter-map-other" class="input" type="text" placeholder="Other map…" style="display:none" />
+        </div>
+        <div class="group">
+          <label>Side</label>
+          <div class="segmented">
+            <button data-side="" class="seg active">Both</button>
+            <button data-side="T" class="seg">T</button>
+            <button data-side="CT" class="seg">CT</button>
+          </div>
+        </div>
+        <div class="group">
+          <label>Favorites</label>
+          <div class="segmented">
+            <button id="filter-fav-all" class="seg active" data-fav="">All</button>
+            <button id="filter-fav-only" class="seg" data-fav="only">Favorites</button>
+          </div>
+        </div>
+        <div class="group">
+          <label>Sort</label>
+          <select id="filter-sort" class="input">
+            <option value="modified">Date modified (newest)</option>
+            <option value="created">Date created (newest)</option>
+            <option value="favorites">Favorites</option>
+            <option value="alpha">Alphabetic (A-Z)</option>
+          </select>
+        </div>
+        <div class="group flex1">
+          <label>Tags</label>
+          <input id="filter-tags" class="input" type="text" placeholder="Tags: mid, window, execute" />
+          <div id="popular-tags" class="badges" aria-label="Popular tags" style="margin-top:6px"></div>
+        </div>
+        <div class="group flex1">
+          <label>Search</label>
+          <input id="filter-search" class="input" type="search" placeholder="Search title and notes (F)" />
+        </div>
+        <div id="group-clear" class="group" style="background:transparent; border:none; padding:0; margin-left:auto; align-self:flex-end; display:flex">
+          <button id="btn-clear-filters" title="Reset all filters">Clear filters</button>
+        </div>
+      </div>
+    </section>
+
+    <main id="grid" class="grid" aria-live="polite">
+      <!-- Cards rendered here -->
+    </main>
+  </div>
+
+  <div id="modal-root" class="modal-root" hidden></div>
+
+  <input id="file-import" type="file" accept="application/json" hidden />
+  <noscript>
+    <p style="padding:1rem">This app requires JavaScript enabled.</p>
+  </noscript>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
